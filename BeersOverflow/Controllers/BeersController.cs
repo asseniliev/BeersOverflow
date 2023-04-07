@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AspNetCoreDemo.Exceptions;
+using Microsoft.AspNetCore.Http;
 
 namespace AspNetCoreDemo.Controllers
 {
@@ -25,8 +27,19 @@ namespace AspNetCoreDemo.Controllers
 
         public IActionResult Details(int id)
         {
-            Beer beer = this.beersService.GetById(id);
-            return View(beer);
+            try
+            {
+                Beer beer = this.beersService.GetById(id);
+                return View(beer);
+            }
+            catch (EntityNotFoundException ex)
+            {
+                this.Response.StatusCode = StatusCodes.Status404NotFound;
+                this.ViewData["ErrorMessage"] = $"Beer with id {id} does not exist.";
+
+                return this.View("Error");
+            }
+
         }
     }
 }

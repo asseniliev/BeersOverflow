@@ -83,3 +83,4 @@ D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\BeersOverflow.csp
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\BeersOverflow.dll
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\BeersOverflow.pdb
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\BeersOverflow.genruntimeconfig.cache
+D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
