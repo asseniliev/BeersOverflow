@@ -1,29 +1,23 @@
-# Weatherapp-Frontend
+# Beers Overflow
 
-[Link to Vercel deployment](https://weatherapp-frontend-iota.vercel.app/)
+Beers Overflow is currently a work in progress.
+It contains the prototyping development of a basic MVC project in C#, following
+the lections provided by [Telerik Akademy C# Alpha training](https://www.telerikacademy.com/alpha/csharp)
 
-Weatherapp is a simple one-page application developped in duration of 4 days as part of the fullstack web development bootcamp in La Capsule (Lyon, 2023). 
-
-This repository is the frontend of the application. <br />
-[Link to the backend github repository](https://github.com/asseniliev/Weatherapp-backend)
-
-Front page:
-
-![Weatherapp](frontPage.jpg)
+![Front Page](frontPage.jpg)
 
 Functionality available:
-1. Display card with meteo info per city
-2. At application load, the database is checked and current meteo info if displayed for the cities already in the database
-3. New cities can be added in the meteo dashboard via the input field 'Add new city'
-  (Only valid cities can be added. The app checks if the city entered exist or not)
-4. Each card contains a 'Delete' button. Pressing that button permanently deletes the corresponding city
-5. All cities names on the panel are stored in Mongo database
+(To be completed)
 
 
 Skills trained and exercised:
-1. Deploy backend using Express framework
-2. Implement database schemas and use them to realize database models
-3. Call backend routes and receive backend data
-4. Use database CRUD operations to work with models and update documents/collections in the Mongo database
-5. Fetch data from external API and return json result
-6. Work with DOM events and DOM content; dynamically update the DOM
+1. Entity Framework: Deploy models corresponding to a database structure
+2. Create Data structure to seed SQL data
+3. Use Entity Framework migration to create the SQL database and transfer data to the tables
+4. Create layered architecture with Repositories, Services and Controllers to realize segregation of duties approach
+5. Implement API controllers communicating with the Service layer with endpoints accessible via API client (Postman)
+6. Implement MVC controllers communicating with the Service layer with actions returning Razor Views
+7. Implement Razor views containing HTML code for web representation
+8. Transfer data from the MVC controller to the Razor view via Model variable, ViewData dictionary and DataBag object
+9. Use shared views via the Views/Shared folder and shared resources via wwwroot folder
+10. Navigate between Razor views
