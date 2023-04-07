@@ -1,8 +1,7 @@
 # Beers Overflow
 
 Beers Overflow is currently a work in progress.
-It contains the prototyping development of a basic MVC project in C#, following
-the lections provided by [Telerik Akademy C# Alpha training](https://www.telerikacademy.com/alpha/csharp)
+It contains the prototyping development of a basic MVC project in C#, following the lections provided by [Telerik Akademy C# Alpha training](https://www.telerikacademy.com/alpha/csharp)
 
 ![Front Page](frontPage.jpg)
 
