@@ -1,0 +1,13 @@
+﻿{
+  "$schema": "http://json.schemastore.org/launchsettings.json",
+  "profiles": {
+    "AspNetCoreDemo": {
+      "commandName": "Project",
+      "dotnetRunMessages": "true",
+      "launchBrowser": true,
+      // Change the launchUrl to "api/swagger" and examine the result
+      "launchUrl": "home",
+      "applicationUrl": "http://localhost:5000"
+    }
+  }
+}

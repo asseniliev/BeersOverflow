@@ -1,0 +1,54 @@
+﻿@using AspNetCoreDemo.Models
+@model IEnumerable<Beer>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>BeerOverflow - Beers</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div>
+            <h3>
+                <a href="/Home/Index" class="nav">Home</a>
+                <a href="/Beers/Index" class="nav">Beers</a>
+                <a href="/Home/About" class="nav">About</a>
+                <a href="/api/swagger" class="nav">Developer API</a>
+            </h3>
+        </div>
+    </header>
+
+    <div class="body-content">
+        <h2>Beers</h2>
+
+        <div class="table">
+            <div class="header">
+                <div class="header-cell">Name</div>
+                <div class="header-cell">% ABV</div>
+                <div class="header-cell">Style</div>
+                <div class="header-cell">Actions</div>
+            </div>
+
+            @{
+                foreach (var beer in this.Model)
+                {
+                    <div class="row">
+                        <div class="cell">@beer.Name</div>
+                        <div class="cell">@beer.Abv</div>
+                        <div class="cell">@beer.Style.Name</div>
+                        <div class="cell">
+                            <a href="@($"/Beers/Details/{beer.Id}")" class="nav">Details</a>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+
+    <footer>
+        <small>© Copyright @DateTime.Now.Year, BeerOverflow</small>
+    </footer>
+</body>
+</html>

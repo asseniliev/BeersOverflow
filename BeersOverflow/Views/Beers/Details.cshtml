@@ -1,0 +1,50 @@
+﻿@using AspNetCoreDemo.Models
+@model Beer
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>BeerOverflow - @this.Model.Name</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div>
+            <h3>
+                <a href="/Home/Index" class="nav">Home</a>
+                <a href="/Beers/Index" class="nav">Beers</a>
+                <a href="/Home/About" class="nav">About</a>
+                <a href="/api/swagger" class="nav">Developer API</a>
+            </h3>
+        </div>
+    </header>
+
+    <div class="body-content">
+        <h2>@this.Model.Name</h2>
+
+        <p class="margin12">Alc%: @this.Model.Abv</p>
+        <p class="margin12">Style: @this.Model.Style.Name</p>
+        <p class="margin12">Created by: @this.Model.CreatedBy.Username</p>
+
+        <h4>Ratings</h4>
+
+        <ul>
+
+            @{
+                foreach (var rating in this.Model.Ratings)
+                {
+                    <li class="margin12">@rating.User.Username rated with @rating.Value</li>
+                }
+            }
+
+        </ul>
+
+        <a href="/Beers/Index" class="nav">Go Back</a>
+    </div>
+
+    <footer>
+        <small>© Copyright @DateTime.Now.Year, BeerOverflow</small>
+    </footer>
+</body>
+</html>
