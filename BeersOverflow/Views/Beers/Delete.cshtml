@@ -1,0 +1,36 @@
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@model AspNetCoreDemo.Models.Beer;
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>BeerOverflow - Delete</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <div>
+            <h3>
+                <a asp-controller="Home" asp-action="Index" class="nav">Home</a>
+                <a asp-controller="Beers" asp-action="Index" class="nav">Beers</a>
+                <a asp-controller="Home" asp-action="About" class="nav">About</a>
+                <a href="/api/swagger" class="nav">Developer API</a>
+            </h3>
+        </div>
+    </header>
+    <div class="body-content">
+        <h2>Delete <b>@this.Model.Name</b>?</h2>
+
+        <form asp-controller="Beers" asp-action="Delete" method="post">
+            <input type="submit" value="Delete" class="btn-danger" />
+        </form>
+
+        <a asp-controller="Beers" asp-action="Index" class="nav">Back</a>
+    </div>
+
+    <footer>
+        <small>© Copyright @DateTime.Now.Year, BeerOverflow</small>
+    </footer>
+</body>
+</html>

@@ -132,5 +132,50 @@ namespace AspNetCoreDemo.Controllers
                 return this.View("Error");
             }
         }
+
+        [HttpGet]
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var beer = this.beersService.GetById(id);
+
+                return this.View(beer);
+            }
+            catch (EntityNotFoundException ex)
+            {
+                this.Response.StatusCode = StatusCodes.Status404NotFound;
+                this.ViewData["ErrorMessage"] = ex.Message;
+
+                return this.View("Error");
+            }
+        }
+
+        [HttpPost, ActionName("Delete")]
+        public IActionResult DeleteConfirmed(int id)
+        {
+            try
+            {
+                // Warning: We bypass authentication and authorization just for this demo
+                var user = this.authManager.TryGetUser("admin");
+                this.beersService.Delete(id, user);
+
+                return this.RedirectToAction("Index", "Beers");
+            }
+            catch (EntityNotFoundException ex)
+            {
+                this.Response.StatusCode = StatusCodes.Status404NotFound;
+                this.ViewData["ErrorMessage"] = ex.Message;
+
+                return this.View("Error");
+            }
+            catch (UnauthorizedOperationException ex)
+            {
+                this.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                this.ViewData["ErrorMessage"] = ex.Message;
+
+                return this.View("Error");
+            }
+        }
     }
 }

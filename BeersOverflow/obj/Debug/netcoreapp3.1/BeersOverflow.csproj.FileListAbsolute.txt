@@ -86,3 +86,4 @@ D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\BeersOverflow.gen
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Beers\Create.cshtml.g.cs
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Beers\Edit.cshtml.g.cs
+D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Beers\Delete.cshtml.g.cs
