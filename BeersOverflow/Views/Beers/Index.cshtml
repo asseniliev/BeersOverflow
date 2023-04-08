@@ -1,4 +1,5 @@
-﻿@using AspNetCoreDemo.Models
+﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@using AspNetCoreDemo.Models
 @model IEnumerable<Beer>
 
 <!DOCTYPE html>
@@ -12,10 +13,18 @@
     <header>
         <div>
             <h3>
-                <a href="/Home/Index" class="nav">Home</a>
+                @*I leave these lines commented in the code, to have comparison between
+                    pure html and asp tag helpers approach:*@
+
+                @*<a href="/Home/Index" class="nav">Home</a>
                 <a href="/Beers/Index" class="nav">Beers</a>
                 <a href="/Home/About" class="nav">About</a>
-                <a href="/api/swagger" class="nav">Developer API</a>
+                <a href="/api/swagger" class="nav">Developer API</a>*@
+
+                <a asp-controller="Home" asp-action="Index" class="nav">Home</a>
+                <a asp-controller="Beers" asp-action="Index" class="nav">Beers</a>
+                <a asp-controller="Home" asp-action="About" class="nav">About</a>
+                <a asp-controller="api" asp-action="swagger" class="nav">Developer API</a>
             </h3>
         </div>
     </header>
@@ -39,7 +48,8 @@
                         <div class="cell">@beer.Abv</div>
                         <div class="cell">@beer.Style.Name</div>
                         <div class="cell">
-                            <a href="@($"/Beers/Details/{beer.Id}")" class="nav">Details</a>
+                            <a asp-controller="Beers" asp-action="Details" asp-route-id="@beer.Id" >Details</a>
+                            @*<a href="@($"/Beers/Details/{beer.Id}")" class="nav">Details</a>*@
                         </div>
                     </div>
                 }
