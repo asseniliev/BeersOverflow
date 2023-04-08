@@ -76,5 +76,61 @@ namespace AspNetCoreDemo.Controllers
                 return this.View(beer);
             }
         }
+
+        [HttpGet]
+        public IActionResult Edit([FromRoute] int id)
+        {
+            try
+            {
+                var beer = this.beersService.GetById(id);
+
+                return this.View(beer);
+            }
+            catch (EntityNotFoundException ex)
+            {
+                this.Response.StatusCode = StatusCodes.Status404NotFound;
+                this.ViewData["ErrorMessage"] = ex.Message;
+
+                return this.View("Error");
+            }
+        }
+
+        [HttpPost]
+        public IActionResult Edit(int id, Beer beer)
+        {
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(beer);
+            }
+
+            try
+            {
+                // Warning: We bypass authentication and authorization just for this demo
+                var user = this.authManager.TryGetUser("admin");
+                _ = this.beersService.Update(id, beer, user);
+
+                return this.RedirectToAction("Index", "Beers");
+            }
+            catch (UnauthorizedOperationException ex)
+            {
+                this.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                this.ViewData["ErrorMessage"] = ex.Message;
+
+                return this.View("Error");
+            }
+            catch (DuplicateEntityException ex)
+            {
+                this.ModelState.AddModelError("Name", ex.Message);
+
+                return this.View(beer);
+            }
+            catch (EntityNotFoundException ex)
+            {
+                this.Response.StatusCode = StatusCodes.Status404NotFound;
+                this.ViewData["ErrorMessage"] = ex.Message;
+
+                return this.View("Error");
+            }
+        }
     }
 }
