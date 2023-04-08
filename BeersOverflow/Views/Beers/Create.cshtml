@@ -1,0 +1,27 @@
+﻿<html>
+<head>
+    <title>BeerOverflow - Home</title>
+    <link href="~/css/site.css" rel="stylesheet" />
+</head>
+<body>
+    <header>
+        <div>
+            <h3>
+                <a asp-controller="Home" asp-action="Index" class="nav">Home</a>
+                <a asp-controller="Beers" asp-action="Index" class="nav">Beers</a>
+                <a asp-controller="Home" asp-action="About" class="nav">About</a>
+                <a asp-controller="api" asp-action="swagger" class="nav">Developer API</a>
+
+            </h3>
+        </div>
+    </header>
+    <h1> Welcome</h1>
+
+    <img src="~/images/logo.png" />
+
+    <footer>
+        <small>© Copyright @DateTime.Now.Year, BeerOverflow</small>
+    </footer>
+
+</body>
+</html>
