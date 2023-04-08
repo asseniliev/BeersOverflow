@@ -79,7 +79,7 @@ namespace AspNetCoreDemo.Services
 
 			if (duplicateExists)
 			{
-				throw new DuplicateEntityException();
+				throw new DuplicateEntityException($"Beer {beer.Name} already exists.");
 			}
 
 			Beer updatedBeer = this.repository.Update(id, beer);

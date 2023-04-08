@@ -48,9 +48,9 @@ namespace AspNetCoreDemo.Controllers
         [HttpGet]
         public IActionResult Create()
         {
-            var beer = new Beer();
+            //var beer = new Beer();
 
-            return this.View(beer);
+            return this.View();
         }
 
         [HttpPost]

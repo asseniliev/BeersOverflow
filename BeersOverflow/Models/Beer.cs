@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace AspNetCoreDemo.Models
 {
@@ -8,6 +9,7 @@ namespace AspNetCoreDemo.Models
 		public string Name { get; set; }
 		public double Abv { get; set; }
 
+		[Display(Name = "Style")]
 		// Foreign key
 		public int StyleId { get; set; }
 		// Navigation property
