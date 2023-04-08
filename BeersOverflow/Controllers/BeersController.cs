@@ -7,16 +7,19 @@ using System.Linq;
 using System.Threading.Tasks;
 using AspNetCoreDemo.Exceptions;
 using Microsoft.AspNetCore.Http;
+using AspNetCoreDemo.Helpers;
 
 namespace AspNetCoreDemo.Controllers
 {
     public class BeersController : Controller
     {
         private readonly IBeersService beersService;
+        private readonly AuthManager authManager;
 
-        public BeersController(IBeersService beersService)
+        public BeersController(IBeersService beersService, AuthManager authManager)
         {
             this.beersService = beersService;
+            this.authManager = authManager;
         }
 
         public IActionResult Index()
@@ -40,6 +43,38 @@ namespace AspNetCoreDemo.Controllers
                 return this.View("Error");
             }
 
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            var beer = new Beer();
+
+            return this.View(beer);
+        }
+
+        [HttpPost]
+        public IActionResult Create(Beer beer)
+        {            
+            if (!this.ModelState.IsValid)
+            {
+                return this.View(beer);
+            }
+
+            try
+            {
+                // Warning: We bypass authentication and authorization just for this demo
+                var user = this.authManager.TryGetUser("admin");
+                var createdBeer = this.beersService.Create(beer, user);
+
+                return this.RedirectToAction("Details", "Beers", new { id = createdBeer.Id });
+            }
+            catch (DuplicateEntityException ex)
+            {
+                this.ModelState.AddModelError("Name", ex.Message);
+
+                return this.View(beer);
+            }
         }
     }
 }

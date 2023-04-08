@@ -31,6 +31,8 @@
     <div class="body-content">
         <h2>Beers</h2>
 
+        <a asp-controller="Beers" asp-action="Create">Create a new beer</a>
+
         <div class="table">
             <div class="header">
                 <div class="header-cell">Name</div>
@@ -42,15 +44,18 @@
             @{
                 foreach (var beer in this.Model)
                 {
-                    <div class="row">
-                        <div class="cell">@beer.Name</div>
-                        <div class="cell">@beer.Abv</div>
-                        <div class="cell">@beer.Style.Name</div>
-                        <div class="cell">
-                            <a asp-controller="Beers" asp-action="Details" asp-route-id="@beer.Id" >Details</a>
-                            @*<a href="@($"/Beers/Details/{beer.Id}")" class="nav">Details</a>*@
+                        <div class="row">
+                            <div class="cell">@beer.Name</div>
+                            <div class="cell">@beer.Abv</div>
+                            <div class="cell">@beer.Style.Name</div>
+                            <div class="cell">
+                                <a asp-controller="Beers" asp-action="Details" asp-route-id="@beer.Id">Details</a>
+                                <a asp-controller="Beers" asp-action="Edit" asp-route-id="@beer.Id">Edit</a>
+                                <a asp-controller="Beers" asp-action="Delete" asp-route-id="@beer.Id">Delete</a>
+                                @*<a href="@($"/Beers/Details/{beer.Id}")" class="nav">Details</a>*@
+                            </div>
+
                         </div>
-                    </div>
                 }
             }
         </div>
