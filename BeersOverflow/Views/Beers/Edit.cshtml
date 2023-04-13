@@ -4,7 +4,7 @@
 @{
     var styles = new SelectList(this.stylesService.GetAll(), "Id", "Name");
 }
-<!DOCTYPE html>
+@*<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -21,7 +21,7 @@
                 <a href="/api/swagger" class="nav">Developer API</a>
             </h3>
         </div>
-    </header>
+    </header>*@
     <div class="body-content">
         <h2>@this.Model.Name</h2>
         <form asp-controller="Beers" asp-action="Edit" method="post">
@@ -53,7 +53,7 @@
 
         <a asp-controller="Beers" asp-action="Index" class="nav">Back</a>
     </div>
-    <footer>
+    @*<footer>
         <div>
             <p>
                 &copy; @DateTime.Now.Year - BeerTag - <a asp-controller="Home" asp-action="About">About</a>
@@ -61,4 +61,4 @@
         </div>
     </footer>
 </body>
-</html>
+</html>*@
