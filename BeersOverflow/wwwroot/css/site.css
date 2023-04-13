@@ -88,3 +88,11 @@ a.nav {
 .label-error {
     color: red
 }
+
+.beer-name-visible{
+    display: block;
+}
+
+.beer-name-hidden {
+    display: none;
+}

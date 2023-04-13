@@ -1,0 +1,36 @@
+﻿@inject AspNetCoreDemo.Services.IStylesService stylesService;
+@model AspNetCoreDemo.Models.Beer;
+
+@{
+    var styles = new SelectList(this.stylesService.GetAll(), "Id", "Name");
+}
+
+<div class="body-content">
+    <form asp-controller="Beers" asp-action="@this.ViewData["Action"]" method="post">
+        <div class="@this.ViewData["BeerNameVisibility"]">
+            <label asp-for="Name" class="form-label"></label>
+            <br />
+            <input asp-for="Name" type="text" class="form-input" />
+            <br />
+            <span asp-validation-for="Name" class="form-error"></span>
+        </div>
+        <div>
+            <label asp-for="Abv" class="form-label"></label>
+            <br />
+            <input asp-for="Abv" type="number" step="0.5" class="form-input" />
+            <br />
+            <span asp-validation-for="Abv" class="form-error"></span>
+        </div>
+        <div>
+            <label asp-for="StyleId" class="form-label"></label>
+            <br />
+            <select asp-items="@styles" asp-for="StyleId" class="form-input"></select>
+            <br />
+            <span asp-validation-for="StyleId" class="form-error"></span>
+        </div>
+        <!-- Submit -->
+        <div>
+            <input type="submit" value="@this.ViewData["Submit"]" class="btn-primary" />
+        </div>
+    </form>
+</div>

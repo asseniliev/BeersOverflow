@@ -32,6 +32,7 @@ namespace AspNetCoreDemo.Controllers
         {
             try
             {
+                this.ViewData["Title"] = "Details";
                 Beer beer = this.beersService.GetById(id);
                 return View(beer);
             }
@@ -40,6 +41,7 @@ namespace AspNetCoreDemo.Controllers
                 this.Response.StatusCode = StatusCodes.Status404NotFound;
                 this.ViewData["ErrorMessage"] = $"Beer with id {id} does not exist.";
 
+                this.ViewData["Title"] = "Error";
                 return this.View("Error");
             }
 
@@ -49,7 +51,6 @@ namespace AspNetCoreDemo.Controllers
         public IActionResult Create()
         {
             //var beer = new Beer();
-
             return this.View();
         }
 
@@ -84,6 +85,7 @@ namespace AspNetCoreDemo.Controllers
             {
                 var beer = this.beersService.GetById(id);
 
+                this.ViewData["Title"] = "Edit";
                 return this.View(beer);
             }
             catch (EntityNotFoundException ex)
@@ -91,6 +93,7 @@ namespace AspNetCoreDemo.Controllers
                 this.Response.StatusCode = StatusCodes.Status404NotFound;
                 this.ViewData["ErrorMessage"] = ex.Message;
 
+                this.ViewData["Title"] = "Error";
                 return this.View("Error");
             }
         }
@@ -139,7 +142,7 @@ namespace AspNetCoreDemo.Controllers
             try
             {
                 var beer = this.beersService.GetById(id);
-
+                this.ViewData["Title"] = "Delete";
                 return this.View(beer);
             }
             catch (EntityNotFoundException ex)
@@ -147,6 +150,7 @@ namespace AspNetCoreDemo.Controllers
                 this.Response.StatusCode = StatusCodes.Status404NotFound;
                 this.ViewData["ErrorMessage"] = ex.Message;
 
+                this.ViewData["Title"] = "Error";
                 return this.View("Error");
             }
         }

@@ -1,63 +1,12 @@
 ﻿@inject AspNetCoreDemo.Services.IStylesService stylesService;
 @model AspNetCoreDemo.Models.Beer;
-
 @{
     var styles = new SelectList(this.stylesService.GetAll(), "Id", "Name");
+    this.ViewData["Title"] = "Create";
+    this.ViewData["Action"] = "Create";
+    this.ViewData["Submit"] = "Create";
+    this.ViewData["BeerNameVisibility"] = "beer-name-visible";
 }
 
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>BeerOverflow - Create</title>
-    <link href="~/css/site.css" rel="stylesheet" />
-</head>
-<body>
-    <header>
-        <div>
-            <h3>
-                <a asp-controller="Home" asp-action="Index" class="nav">Home</a>
-                <a asp-controller="Beers" asp-action="Index" class="nav">Beers</a>
-                <a asp-controller="Home" asp-action="About" class="nav">About</a>
-                <a asp-controller="api" asp-action="swagger" class="nav">Developer API</a>
-
-            </h3>
-        </div>
-    </header>*@
-    <div class="body-content">
-        <h2>Create a new beer</h2>
-        <form asp-controller="Beers" asp-action="Create" method="post">
-            <div>
-                <label asp-for="Name" class="form-label"></label>
-                <br />
-                <input asp-for="Name" type="text" class="form-input" />
-                <br />
-                <span asp-validation-for="Name" class="form-error"></span>
-            </div>
-            <div>
-                <label asp-for="Abv" class="form-label"></label>
-                <br />
-                <input asp-for="Abv" type="number" step="0.5" class="form-input" />
-                <br />
-                <span asp-validation-for="Abv" class="form-error"></span>
-            </div>
-            <div>
-                <label asp-for="StyleId" class="form-label"></label>
-                <br />
-                <select asp-items="@styles" asp-for="StyleId" class="form-input"></select>
-                <br />
-                <span asp-validation-for="StyleId" class="form-error"></span>
-            </div>
-            <!-- Submit -->
-            <div>
-                <input type="submit" value="Create" class="btn-primary" />
-            </div>
-        </form>
-    </div>
-
-    @*<footer>
-        <small>© Copyright @DateTime.Now.Year, BeerOverflow</small>
-    </footer>
-
-</body>
-</html>*@
+<h2>Create a new beer</h2>
+<partial name="_BeerForm" />

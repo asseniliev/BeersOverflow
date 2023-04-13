@@ -2,62 +2,14 @@
 @model AspNetCoreDemo.Models.Beer;
 @{
     var styles = new SelectList(this.stylesService.GetAll(), "Id", "Name");
+    this.ViewData["Title"] = "Edit";
+    this.ViewData["Action"] = "Edit";
+    this.ViewData["Submit"] = "Save";
+    this.ViewData["BeerNameVisibility"] = "beer-name-hidden";
 }
-@*<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <title>BeerOverflow - Edit</title>
-    <link rel="stylesheet" href="~/css/site.css" />
-</head>
-<body>
-    <header>
-        <div>
-            <h3>
-                <a asp-controller="Home" asp-action="Index" class="nav">Home</a>
-                <a asp-controller="Beers" asp-action="Index" class="nav">Beers</a>
-                <a asp-controller="Home" asp-action="About" class="nav">About</a>
-                <a href="/api/swagger" class="nav">Developer API</a>
-            </h3>
-        </div>
-    </header>*@
-    <div class="body-content">
-        <h2>@this.Model.Name</h2>
-        <form asp-controller="Beers" asp-action="Edit" method="post">
-            @*
-                Updating the name of a beer is not allowed according to project requirements. ¯\_(ツ)_/¯
-            *@
-            <div>
-                <input asp-for="Name" type="hidden" class="form-input" />
-            </div>
-            <div>
-                <label asp-for="Abv" class="form-label"></label>
-                <br />
-                <input asp-for="Abv" type="number" step="0.5" class="form-input" />
-                <br />
-                <span asp-validation-for="Abv" class="form-error"></span>
-            </div>
-            <div>
-                <label asp-for="StyleId" class="form-label"></label>
-                <br />
-                <select asp-items="@styles" asp-for="StyleId" class="form-input"></select>
-                <br />
-                <span asp-validation-for="StyleId" class="form-error"></span>
-            </div>
-            <!-- Save -->
-            <div>
-                <input type="submit" value="Save" class="btn-primary" />
-            </div>
-        </form>
 
-        <a asp-controller="Beers" asp-action="Index" class="nav">Back</a>
-    </div>
-    @*<footer>
-        <div>
-            <p>
-                &copy; @DateTime.Now.Year - BeerTag - <a asp-controller="Home" asp-action="About">About</a>
-            </p>
-        </div>
-    </footer>
-</body>
-</html>*@
+<h2>@this.Model.Name</h2>
+<partial name="_BeerForm" />
+
+<a asp-controller="Beers" asp-action="Index" class="nav">Back</a>
+

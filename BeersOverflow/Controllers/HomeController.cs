@@ -15,6 +15,7 @@ namespace AspNetCoreDemo.Controllers
 
         public IActionResult About()
         {
+            this.ViewData["Title"] = "About";
             return this.View();
         }
     }
