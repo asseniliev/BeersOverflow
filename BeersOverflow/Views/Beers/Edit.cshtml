@@ -1,5 +1,4 @@
-﻿@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
-@inject AspNetCoreDemo.Services.IStylesService stylesService;
+﻿@inject AspNetCoreDemo.Services.IStylesService stylesService;
 @model AspNetCoreDemo.Models.Beer;
 @{
     var styles = new SelectList(this.stylesService.GetAll(), "Id", "Name");
