@@ -89,3 +89,4 @@ D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Beers
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Beers\Delete.cshtml.g.cs
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
+D:\Github\Beers Overflow\BeersOverflow\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
